@@ -2,12 +2,22 @@ steps:
 # build
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID', '.']
+  id: 'build'
+
 # push
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
+  wait_for: 'build'
+  id: 'push'
+
 # pull/run
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['run', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['run', '-p 80:8080', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
+#   wait_for: 'push'
+
+# deploy
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', '--image-url', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
 
 
 # testar isso com gcloud repository, nao funciona com git
