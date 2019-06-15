@@ -1,5 +1,9 @@
 runtime: custom
 env: flex
-service: python-server
+service: python-server-automated
+entrypoint: 8080
+instance_class: B1
+manual_scaling:
+  instances: 1
 
 # gcloud app deploy

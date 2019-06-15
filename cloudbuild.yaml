@@ -1,0 +1,4 @@
+steps:
+- name: "gcr.io/kigali-243810/python-server-automated"
+  args: ["app", "deploy"]
+timeout: "1600s"
