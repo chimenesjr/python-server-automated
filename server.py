@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "1: " + datetime.datetime.now().ctime()
+    return "2: " + datetime.datetime.now().ctime()
 
 @app.route("/static")
 def static_content():
