@@ -1,22 +1,15 @@
 steps:
 
-# option 1
-# # build
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID', '.']
-#   id: 'build'
+# build
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID', '.']
+  id: 'build'
 
-# # push
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
-#   id: 'push'
+# push
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
+  id: 'push'
 
-# # deploy
-# - name: 'gcr.io/cloud-builders/gcloud'
-#   args: ['app', 'deploy', '--image-url', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
-
-#--------------------------------------------------------------------
-
-# option 2
+# deploy
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy']
+  args: ['app', 'deploy', '--image-url', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
