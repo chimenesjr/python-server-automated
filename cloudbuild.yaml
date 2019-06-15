@@ -7,7 +7,6 @@ steps:
 # push
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/python-server-automated:$REVISION_ID']
-  wait_for: 'build'
   id: 'push'
 
 # pull/run
