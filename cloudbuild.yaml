@@ -1,4 +1,17 @@
+# steps:
+# # build
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/python-server-automated', '.']
+# # push
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['pull', 'gcr.io/$PROJECT_ID/python-server-automated']
+# # pull
+# - name: "gcr.io/kigali-243810/python-server-automated"
+#   args: ["app", "deploy"]
+# # deploy
+# timeout: "1600s"
+
 steps:
-- name: "gcr.io/kigali-243810/python-server-automated"
-  args: ["app", "deploy"]
-timeout: "1600s"
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy']
+timeout: '1600s'
