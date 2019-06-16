@@ -1,3 +1,5 @@
+# cloud build realy needs an app.yaml
+
 runtime: custom
 env: flex
 service: python-server-automated
