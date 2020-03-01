@@ -1,9 +1,9 @@
 # python-server-automated
 -----------------------
 
-Build and Promotion automation with GCP CLoud Builder
+Build and Deploy automated with GCP CLoud Builder
 
-Publishing in a App Engine service named python-server-automated
+Publishing on App Engine service named python-server-automated
 
 Python application inside a docker container
 
